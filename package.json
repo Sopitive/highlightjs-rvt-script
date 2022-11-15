@@ -15,7 +15,9 @@
       "end",
       "on",
       "function",
-      "then"
+      "then",
+      "if",
+      "local"
     ],
     "author": "Sopitive",
     "devDependencies": {

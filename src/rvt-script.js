@@ -10,7 +10,7 @@ Description: Reach Variant Tool Scripting Language
      case_insensitive: true,
      keywords:
        {
-         keyword: 'for each do on function end alias then',
+         keyword: 'for each do on function end alias then if local high',
          literal: 'true false none'
        },
      contains:
@@ -34,7 +34,7 @@ Description: Reach Variant Tool Scripting Language
          },
          {
            className: 'functionCall',
-           begin: /(\s+|,)\w+\(/,
+           begin: /(\s+|)\w+\(/,
            end: /\)/,
            keywords: {
              built_in: 'place_at_me set_scale face_toward copy_rotation_from try_get_killer try_get_weapon try_get_vehicle set_text'
