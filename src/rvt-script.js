@@ -27,10 +27,9 @@ Description: Reach Variant Tool Scripting Language
          },
          {
            className: 'type',
-           begin: /((-|>)?\s?\(|-\[)\w*:/,
+           begin: /\./,
            excludeBegin: true,
-           end: '\\W',
-           excludeEnd: true,
+           end: /\w+(\s|$)/,
          },
          {
            className: 'functionCall',
@@ -45,7 +44,7 @@ Description: Reach Variant Tool Scripting Language
          {
            begin: '--',
            end: '\n',
-           excludeEnd: true
+           excludeEnd: true,
          }
        ]
    }
