@@ -17,7 +17,13 @@
       "function",
       "then",
       "if",
-      "local"
+      "local",
+      "declare",
+      "alt",
+      "altif",
+      "enum",
+      "local",
+      "high"
     ],
     "author": "Sopitive",
     "devDependencies": {
