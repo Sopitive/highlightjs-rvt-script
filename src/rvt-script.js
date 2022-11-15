@@ -51,7 +51,7 @@ Description: Reach Variant Tool Scripting Language
          hljs.COMMENT,
          {
            begin: '--',
-           end: '.*$'
+           end: '\n'
          }
        ]
    }
