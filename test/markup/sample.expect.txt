@@ -1,0 +1,7 @@
+<span class="hljs-keyword">alias</span> current_biped = current_player.biped
+
+<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> player <span class="hljs-keyword">do</span>
+    <span class="hljs-keyword">if</span> current_biped.is_of_type(monitor) then
+        current_biped.place_at_me(spartan, none, none, 0, 0, 0, none)
+    end
+end

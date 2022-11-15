@@ -1,0 +1,7 @@
+alias current_biped = current_player.biped
+
+for each player do
+    if current_biped.is_of_type(monitor) then
+        current_biped.place_at_me(spartan, none, none, 0, 0, 0, none)
+    end
+end
