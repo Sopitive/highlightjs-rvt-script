@@ -37,6 +37,7 @@ Description: Reach Variant Tool Scripting Language
            className: 'variable',
            begin: /alias /,
            end: /\w+\s/,
+           excludeBegin: true,
          },
          {
            className: 'functionCall',
