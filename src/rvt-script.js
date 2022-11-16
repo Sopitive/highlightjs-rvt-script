@@ -34,10 +34,10 @@ Description: Reach Variant Tool Scripting Language
            },
          },
           {
-           className: 'variable',
+           className: 'type',
            begin: /alias /,
-           end: /\w+\s/,
            excludeBegin: true,
+           end: /\w+\s/,
          },
          {
            className: 'functionCall',
