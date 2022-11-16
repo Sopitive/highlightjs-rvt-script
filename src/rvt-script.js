@@ -33,8 +33,9 @@ Description: Reach Variant Tool Scripting Language
          },
           {
            className: 'type',
-           begin: /\w+/,
-           end: /\.\w+[[]/,
+           begin: /\w+(?=\.)/,
+           end: /\.\w+(?=[[])/,
+           excludeEnd: true,
          },
          {
            className: 'functionCall',
