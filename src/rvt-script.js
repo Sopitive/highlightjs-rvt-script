@@ -6,6 +6,7 @@ Description: Reach Variant Tool Scripting Language
 */
  module.exports = function (hljs)
  {
+  let COMMENTS = hljs.COMMENT('--', '$')
    return {
      case_insensitive: true,
      keywords:
@@ -18,6 +19,7 @@ Description: Reach Variant Tool Scripting Language
          hljs.QUOTE_STRING_MODE,
          hljs.APOS_STRING_MODE,
          hljs.C_NUMBER_MODE,
+         COMMENTS,
          {
            className: 'string',
            begin: '"',
@@ -54,12 +56,6 @@ Description: Reach Variant Tool Scripting Language
             built_in: 'spawn_sequence team health max_health max_shields shields biped rating score team unknown_09 frag_grenades plasma_grenades current_object current_player current_team death_event_damage_type hud_player hud_player_team hud_target_object hud_target_object_team hud_target_player hud_target_player_team killed_object killer_object killer_player neutral_team no_object no_player no_team no_widget betrayal_booting betrayal_penalty current_round dead_players_can_talk dont_team_restrict_chat fireteams_enabled friendly_fire grace_period_time grace_period_timer grenades_enabled indestructible_vehicles lives_per_round loadout_cam_time perfection_enabled powerup_duration_blue powerup_duration_red powerup_duration_yellow proximity_voice respawn_growth respawn_time respawn_traits_time round_limit round_time_limit round_timer rounds_to_win score_to_win sudden_death_time sudden_death_timer suicide_penalty symmetry symmetry_get team_lives_per_round teams_enabled'
           },
         },
-         hljs.C_LINE_COMMENT_MODE,
-         hljs.C_BLOCK_COMMENT_MODE,
-        {
-          begin: /--/,
-          ends: /[^\n]+$/,
-        }
        ]
    }
  }
