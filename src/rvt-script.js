@@ -57,7 +57,7 @@ Description: Reach Variant Tool Scripting Language
          hljs.C_BLOCK_COMMENT_MODE,
         {
           begin: /--/,
-          ends: /[^\n]/,
+          ends: /[^\n]+/,
         }
        ]
    }
