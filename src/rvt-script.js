@@ -35,9 +35,7 @@ Description: Reach Variant Tool Scripting Language
          },
           {
            className: 'type',
-           begin: /(global|current_player|current_object|player|object|current_team|team)\.(?=(number|timer|object))/,
-           end: /(number|timer|object|team)/,
-           excludeBegin: true,
+           begin: /\.(number|object|team|timer)/,
          },
          {
           className: 'title',
