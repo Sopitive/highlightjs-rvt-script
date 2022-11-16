@@ -258,7 +258,7 @@ alias current_biped = current_player.biped
 for each object with label "Test String" do
     for each player do
     --This is test code to experiment with syntax highlighting
-        if current_object.is_of_type(spartan) and current_object == current_biped then
+        if current_object.is_of_type(spartan) and current_object == current_player.biped then
             current_object.place_at_me(spartan, none, none, 0, 0, 0, none)
             global.object[0] = current_player.biped
             current_player.number[0] = current_biped.health
