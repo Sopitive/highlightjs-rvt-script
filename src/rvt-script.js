@@ -26,10 +26,15 @@ Description: Reach Variant Tool Scripting Language
            contains: [hljs.BACKSLASH_ESCAPE]
          },
           {
-           className: 'type',
+           className: 'variable',
            begin: /alias /,
            excludeBegin: true,
            end: /\w+\s/,
+         },
+          {
+           className: 'type',
+           begin: /\w+/,
+           end: /\.\w+(?=[[])/,
          },
          {
            className: 'functionCall',
@@ -51,8 +56,8 @@ Description: Reach Variant Tool Scripting Language
          hljs.C_LINE_COMMENT_MODE,
          hljs.C_BLOCK_COMMENT_MODE,
         {
-          begin: '--',
-          ends: '--',
+          begin: /[--]/,
+          ends: /.*$/m,
         }
        ]
    }
