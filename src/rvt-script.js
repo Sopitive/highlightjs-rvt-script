@@ -34,7 +34,7 @@ Description: Reach Variant Tool Scripting Language
          },
           {
            className: 'type',
-           begin: /\.(number|object|team|timer)|script_option|script_traits|script_stat/,
+           begin: /\.(number|object|team|timer)|script_option|script_traits|script_stat|script_widget/,
          },
          {
           className: 'title',
@@ -54,6 +54,10 @@ Description: Reach Variant Tool Scripting Language
           keywords: {
             built_in: 'health max_health shields max_shields spawn_sequence team biped rating score script_stat unknown_09 betrayal_booting betrayal_penalty current_round dead_players_can_talk dont_team_restrict_chat fireteams_enabled friendly_fire grace_period_time grace_period_timer grenades_enabled indestructible_vehicles lives_per_round loadout_cam_time perfection_enabled powerup_duration_blue powerup_duration_red powerup_duration_yellow proximity_voice respawn_growth respawn_time respawn_traits_time round_limit round_time_limit round_timer rounds_to_win score_to_win sudden_death_time sudden_death_timer suicide_penalty symmetry symmetry_get team_lives_per_round teams_enabled'
           },
+        },
+         {
+          className: 'symbol',
+          begin: /[^A-Za-z0-9\n _-]/,
         },
        ]
    }
