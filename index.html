@@ -262,6 +262,7 @@ for each object with label "Test String" do
             current_object.place_at_me(spartan, none, none, 0, 0, 0, none)
             global.object[0] = current_player.biped
             current_player.number[0] = current_biped.health
+            current_player.score = script_stat[0]
         end
     end
 end

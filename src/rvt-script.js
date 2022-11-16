@@ -24,7 +24,6 @@ Description: Reach Variant Tool Scripting Language
            className: 'string',
            begin: '"',
            end: '"',
-           illegal: '\\n',
            contains: [hljs.BACKSLASH_ESCAPE]
          },
           {
@@ -35,7 +34,7 @@ Description: Reach Variant Tool Scripting Language
          },
           {
            className: 'type',
-           begin: /\.(number|object|team|timer)/,
+           begin: /\.(number|object|team|timer)|script_option|script_traits|script_stat/,
          },
          {
           className: 'title',
