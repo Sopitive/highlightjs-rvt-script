@@ -35,7 +35,6 @@ Description: Reach Variant Tool Scripting Language
            className: 'type',
            begin: /\w+/,
            end: /\.\w+[[]/,
-           excludeEnd: true,
          },
          {
            className: 'functionCall',
@@ -58,7 +57,7 @@ Description: Reach Variant Tool Scripting Language
          hljs.C_BLOCK_COMMENT_MODE,
         {
           begin: /--/,
-          ends: /[^\n]+/,
+          ends: /[^\n]+$/,
         }
        ]
    }
