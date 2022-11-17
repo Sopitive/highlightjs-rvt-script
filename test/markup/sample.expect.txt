@@ -1,7 +1,36 @@
-<span class="hljs-keyword">alias</span> current_biped = current_player.biped
+<span class="hljs-comment"><span class="hljs-comment">--</span></span>
+<span class="hljs-comment"><span class="hljs-comment">-- I use names like these for my temporary variables:</span></span>
+<span class="hljs-comment"><span class="hljs-comment">--</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">temp_int_00 </span></span><span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">global</span></span><span class="hljs-type"><span class="hljs-type">.number</span></span><span class="hljs-symbol"><span class="hljs-symbol">[</span></span><span class="hljs-number"><span class="hljs-number">0</span></span><span class="hljs-symbol"><span class="hljs-symbol">]</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">temp_int_01 </span></span><span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">global</span></span><span class="hljs-type"><span class="hljs-type">.number</span></span><span class="hljs-symbol"><span class="hljs-symbol">[</span></span><span class="hljs-number"><span class="hljs-number">1</span></span><span class="hljs-symbol"><span class="hljs-symbol">]</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">temp_obj_00 </span></span><span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">global</span></span><span class="hljs-type"><span class="hljs-type">.object</span></span><span class="hljs-symbol"><span class="hljs-symbol">[</span></span><span class="hljs-number"><span class="hljs-number">0</span></span><span class="hljs-symbol"><span class="hljs-symbol">]</span></span>
 
-<span class="hljs-keyword">for</span> <span class="hljs-keyword">each</span> player <span class="hljs-keyword">do</span>
-    <span class="hljs-keyword">if</span> current_biped.is_of_type(monitor) then
-        current_biped.place_at_me(spartan, none, none, 0, 0, 0, none)
-    end
-end
+<span class="hljs-comment"><span class="hljs-comment">--</span></span>
+<span class="hljs-comment"><span class="hljs-comment">-- Variables that need to remain "pristine" throughout a single game tick, or across</span></span>
+<span class="hljs-comment"><span class="hljs-comment">-- multiple game ticks, get more meaningful names:</span></span>
+<span class="hljs-comment"><span class="hljs-comment">--</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">sudden_death_enabled </span></span>  <span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">global</span></span><span class="hljs-type"><span class="hljs-type">.number</span></span><span class="hljs-symbol"><span class="hljs-symbol">[</span></span><span class="hljs-number"><span class="hljs-number">2</span></span><span class="hljs-symbol"><span class="hljs-symbol">]</span></span> <span class="hljs-comment"><span class="hljs-comment">-- set this to 1 when you want Sudden Death to be active, or 0 otherwise</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">announced_sudden_death </span></span><span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">global</span></span><span class="hljs-type"><span class="hljs-type">.number</span></span><span class="hljs-symbol"><span class="hljs-symbol">[</span></span><span class="hljs-number"><span class="hljs-number">3</span></span><span class="hljs-symbol"><span class="hljs-symbol">]</span></span> <span class="hljs-comment"><span class="hljs-comment">-- only announce the start of Sudden Death once</span></span>
+
+<span class="hljs-comment"><span class="hljs-comment">-- I usually define names like the ones above at the start of the script file.</span></span>
+
+<span class="hljs-comment"><span class="hljs-comment">--</span></span>
+<span class="hljs-comment"><span class="hljs-comment">-- Aliases can be block-scoped, so when you're using a temporary variable for something, </span></span>
+<span class="hljs-comment"><span class="hljs-comment">-- you can give it a specific name.</span></span>
+<span class="hljs-comment"><span class="hljs-comment">--</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">for</span></span> <span class="hljs-keyword"><span class="hljs-keyword">each</span></span> <span class="hljs-title"><span class="hljs-title">object</span></span> <span class="hljs-keyword"><span class="hljs-keyword">with</span></span> <span class="hljs-keyword"><span class="hljs-keyword">label</span></span> <span class="hljs-string"><span class="hljs-string">"goal"</span></span> <span class="hljs-keyword"><span class="hljs-keyword">do</span></span>
+    <span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">current_biped </span></span><span class="hljs-symbol"><span class="hljs-symbol">=</span></span> temp_obj_00
+    <span class="hljs-keyword"><span class="hljs-keyword">alias</span></span> <span class="hljs-variable"><span class="hljs-variable">distance </span></span>     <span class="hljs-symbol"><span class="hljs-symbol">=</span></span> temp_int_00
+    <span class="hljs-comment"><span class="hljs-comment">--</span></span>
+    <span class="hljs-keyword"><span class="hljs-keyword">for</span></span> <span class="hljs-keyword"><span class="hljs-keyword">each</span></span> <span class="hljs-title"><span class="hljs-title">player</span></span> <span class="hljs-keyword"><span class="hljs-keyword">do</span></span>
+        current_biped <span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">current_player</span></span><span class="hljs-property"><span class="hljs-property">.</span><span class="hljs-built_in"><span class="hljs-property"><span class="hljs-built_in">biped</span></span></span><span class="hljs-property">
+</span></span>        <span class="hljs-keyword"><span class="hljs-keyword">if</span></span> current_biped <span class="hljs-symbol"><span class="hljs-symbol">!</span></span><span class="hljs-symbol"><span class="hljs-symbol">=</span></span> <span class="hljs-title"><span class="hljs-title">no_object</span></span> <span class="hljs-keyword"><span class="hljs-keyword">then</span></span>
+            distance <span class="hljs-symbol"><span class="hljs-symbol">=</span></span> current_biped<span class="hljs-symbol"><span class="hljs-symbol">.</span></span><span class="hljs-functionCall"><span class="hljs-built_in"><span class="hljs-functionCall"><span class="hljs-built_in">get_distance_to</span></span></span><span class="hljs-functionCall">(</span></span><span class="hljs-title"><span class="hljs-title">current_object</span></span><span class="hljs-symbol"><span class="hljs-symbol">)</span></span>
+            <span class="hljs-keyword"><span class="hljs-keyword">if</span></span> distance <span class="hljs-symbol"><span class="hljs-symbol">&gt;</span></span> <span class="hljs-number"><span class="hljs-number">10</span></span> <span class="hljs-keyword"><span class="hljs-keyword">then</span></span>
+            <span class="hljs-comment"><span class="hljs-comment">--</span></span>
+            <span class="hljs-comment"><span class="hljs-comment">-- ...</span></span>
+            <span class="hljs-comment"><span class="hljs-comment">--</span></span>
+            <span class="hljs-keyword"><span class="hljs-keyword">end</span></span>
+        <span class="hljs-keyword"><span class="hljs-keyword">end</span></span>
+    <span class="hljs-keyword"><span class="hljs-keyword">end</span></span>
+<span class="hljs-keyword"><span class="hljs-keyword">end</span></span>

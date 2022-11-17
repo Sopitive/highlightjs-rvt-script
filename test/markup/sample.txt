@@ -1,7 +1,36 @@
-alias current_biped = current_player.biped
+--
+-- I use names like these for my temporary variables:
+--
+alias temp_int_00 = global.number[0]
+alias temp_int_01 = global.number[1]
+alias temp_obj_00 = global.object[0]
 
-for each player do
-    if current_biped.is_of_type(monitor) then
-        current_biped.place_at_me(spartan, none, none, 0, 0, 0, none)
+--
+-- Variables that need to remain "pristine" throughout a single game tick, or across
+-- multiple game ticks, get more meaningful names:
+--
+alias sudden_death_enabled   = global.number[2] -- set this to 1 when you want Sudden Death to be active, or 0 otherwise
+alias announced_sudden_death = global.number[3] -- only announce the start of Sudden Death once
+
+-- I usually define names like the ones above at the start of the script file.
+
+--
+-- Aliases can be block-scoped, so when you're using a temporary variable for something, 
+-- you can give it a specific name.
+--
+for each object with label "goal" do
+    alias current_biped = temp_obj_00
+    alias distance      = temp_int_00
+    --
+    for each player do
+        current_biped = current_player.biped
+        if current_biped != no_object then
+            distance = current_biped.get_distance_to(current_object)
+            if distance > 10 then
+            --
+            -- ...
+            --
+            end
+        end
     end
 end
