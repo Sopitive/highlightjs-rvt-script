@@ -11,7 +11,7 @@ Description: Reach Variant Tool Scripting Language
      case_insensitive: true,
      keywords:
        {
-         keyword: 'for alt altif enum declare each do on function end alias then if local high with label and',
+         keyword: 'for alt altif enum declare each do on function end alias then if local high with label and allocate temporary',
          literal: 'true false none'
        },
      contains:
@@ -38,7 +38,7 @@ Description: Reach Variant Tool Scripting Language
          },
          {
           className: 'title',
-          begin: /(global|current_player|current_object|player|object|current_team|team|no_object)/,
+          begin: /(\bglobal\b|\bcurrent_player\b|\bcurrent_object\b|\bplayer\b|\bobject\b|\bcurrent_team\b|\bteam\b|\bno_object\b|\btemporaries\b)/,
           excludeEnd: true,
         },
         {
